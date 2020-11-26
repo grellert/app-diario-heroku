@@ -1,6 +1,6 @@
 import { PORTA, GOOGLE_CLIENT_ID } from './env'
 import { setupBDDriver, getEntradas, addEntrada } from './mongodb'
-import https from 'https'
+import http from 'http'
 import fs from 'fs'
 import path from 'path'
 import fetch from 'node-fetch'
@@ -18,11 +18,6 @@ async function validaToken(token){
     console.log(res_json)
   }
   return false
-}
-
-const opcoes = {
-  key: fs.readFileSync(path.resolve(__dirname, '../cert/key.pem')),
-  cert: fs.readFileSync(path.resolve(__dirname, '../cert/cert.pem'))
 }
 
 const app = express()
@@ -61,7 +56,7 @@ app.post('/diario/adiciona', async (req, res) =>{
   }
 })
 
-const server = https.createServer(opcoes, app)
+const server = http.createServer(app)
 
 setupBDDriver()
 // eslint-disable-next-line no-console

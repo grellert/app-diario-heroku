@@ -4,7 +4,7 @@ var _env = require("./env");
 
 var _mongodb = require("./mongodb");
 
-var _https = _interopRequireDefault(require("https"));
+var _http = _interopRequireDefault(require("http"));
 
 var _fs = _interopRequireDefault(require("fs"));
 
@@ -27,10 +27,6 @@ async function validaToken(token) {
   return false;
 }
 
-const opcoes = {
-  key: _fs.default.readFileSync(_path.default.resolve(__dirname, '../cert/key.pem')),
-  cert: _fs.default.readFileSync(_path.default.resolve(__dirname, '../cert/cert.pem'))
-};
 const app = (0, _express.default)();
 
 const bodyParser = require('body-parser');
@@ -65,7 +61,7 @@ app.post('/diario/adiciona', async (req, res) => {
   }
 });
 
-const server = _https.default.createServer(opcoes, app);
+const server = _http.default.createServer(app);
 
 (0, _mongodb.setupBDDriver)(); // eslint-disable-next-line no-console
 
