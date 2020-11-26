@@ -29,12 +29,11 @@ async function getEntrada(userId, data){
   return res
 }
 
-async function getEntradas(token){
+async function getEntradas(){
   console.log('Requisitando entradas do user: ', token)
   const collection = DBDriver.collection('diario')
-  const query = {userId: token}
-
-  const entradas = await collection.find(query).toArray()
+  // FIX ME - usuário só acessa suas próprias entradas
+  const entradas = await collection.find().toArray()
   return entradas
 }
 

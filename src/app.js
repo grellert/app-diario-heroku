@@ -30,7 +30,8 @@ app.post('/diario/busca', async (req, res) =>{
   const token = req.body.token
   const isValid = await validaToken(token)
   if (isValid){
-    const obj = await getEntradas(isValid)
+  
+    const obj = await getEntradas()
     res.json(obj)
   }
   else{
