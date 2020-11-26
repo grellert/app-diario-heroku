@@ -8,11 +8,6 @@ dotenv.config({ path: arquivoPontoEnv })
 
 let comErro = false
 
-if (process.env.PORTA === undefined) {
-  console.log('Variável PORTA não definida!. Defina no arquivo servidor/.env')
-  console.log('Exemplo: PORTA=3000')
-  comErro = true
-}
 
 if (process.env.MONGO_URL === undefined) {
   console.log('Variável MONGO_URL não definida! Defina no arquivo servidor/.env')
@@ -29,7 +24,7 @@ if (comErro) {
   process.exit(1)
 }
 
-const PORTA = parseInt(process.env.PORTA)
+const PORTA = process.env.PORT || 3000
 const MONGO_URL = process.env.MONGO_URL
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID
 export { PORTA, MONGO_URL, GOOGLE_CLIENT_ID}

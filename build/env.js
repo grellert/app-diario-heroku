@@ -21,12 +21,6 @@ _dotenv.default.config({
 
 let comErro = false;
 
-if (process.env.PORTA === undefined) {
-  console.log('Variável PORTA não definida!. Defina no arquivo servidor/.env');
-  console.log('Exemplo: PORTA=3000');
-  comErro = true;
-}
-
 if (process.env.MONGO_URL === undefined) {
   console.log('Variável MONGO_URL não definida! Defina no arquivo servidor/.env');
   comErro = true;
@@ -42,7 +36,7 @@ if (comErro) {
   process.exit(1);
 }
 
-const PORTA = parseInt(process.env.PORTA);
+const PORTA = process.env.PORT || 3000;
 exports.PORTA = PORTA;
 const MONGO_URL = process.env.MONGO_URL;
 exports.MONGO_URL = MONGO_URL;
