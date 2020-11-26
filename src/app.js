@@ -1,7 +1,6 @@
 import { PORTA, GOOGLE_CLIENT_ID } from './env'
 import { setupBDDriver, getEntradas, addEntrada } from './mongodb'
 import http from 'http'
-import fs from 'fs'
 import path from 'path'
 import fetch from 'node-fetch'
 import express from 'express'
@@ -31,7 +30,7 @@ app.post('/diario/busca', async (req, res) =>{
   const token = req.body.token
   const isValid = await validaToken(token)
   if (isValid){
-    const obj = await getEntradas(token)
+    const obj = await getEntradas(isValid)
     res.json(obj)
   }
   else{

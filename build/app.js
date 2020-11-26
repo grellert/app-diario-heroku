@@ -6,8 +6,6 @@ var _mongodb = require("./mongodb");
 
 var _http = _interopRequireDefault(require("http"));
 
-var _fs = _interopRequireDefault(require("fs"));
-
 var _path = _interopRequireDefault(require("path"));
 
 var _nodeFetch = _interopRequireDefault(require("node-fetch"));
@@ -39,7 +37,7 @@ app.post('/diario/busca', async (req, res) => {
   const isValid = await validaToken(token);
 
   if (isValid) {
-    const obj = await (0, _mongodb.getEntradas)(token);
+    const obj = await (0, _mongodb.getEntradas)(isValid);
     res.json(obj);
   } else {
     res.status(500).send('Something broke!');
