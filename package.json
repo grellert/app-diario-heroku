@@ -1,7 +1,7 @@
 {
-  "name": "app_fim_do_mundo_servidor",
+  "name": "app_diario_servidor",
   "version": "1.0.0",
-  "description": "Aplicação que acessa webservice da GOOGLE.",
+  "description": "Aplicação que acessa mongoDB e usa Google OAuth.",
   "scripts": {
     "start": "nodemon --exec npx babel-node src/app.js",
     "build": "babel src -d build",
@@ -11,7 +11,7 @@
     "MongoDB",
     "JWT"
   ],
-  "author": "Leandro J. Komosinski",
+  "author": "Mateus Grellert",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.0.0",
