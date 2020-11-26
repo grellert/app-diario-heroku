@@ -23,7 +23,7 @@ if (process.env.GOOGLE_CLIENT_ID === undefined) {
 if (comErro) {
   process.exit(1)
 }
-
+// process.env.PORT vem do Heroku
 const PORTA = process.env.PORT || 3000
 const MONGO_URL = process.env.MONGO_URL
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID

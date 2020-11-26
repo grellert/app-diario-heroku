@@ -22,7 +22,7 @@ async function validaToken(token){
 const app = express()
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
-app.use(express.static(path.resolve(__dirname, '../publico')))
+app.use(express.static(path.resolve(__dirname, '../public')))
 
 app.get('/chave', (req, res) => res.json(GOOGLE_CLIENT_ID))
 
