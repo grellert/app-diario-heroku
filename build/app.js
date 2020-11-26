@@ -39,7 +39,7 @@ app.post('/diario/busca', async (req, res) => {
   const isValid = await validaToken(token);
 
   if (isValid) {
-    const obj = await (0, _mongodb.getEntradas)();
+    const obj = await (0, _mongodb.getEntradas)(token);
     res.json(obj);
   } else {
     res.status(500).send('Something broke!');

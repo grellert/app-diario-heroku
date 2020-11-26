@@ -51,10 +51,12 @@ async function getEntrada(userId, data) {
   return res;
 }
 
-async function getEntradas() {
-  const collection = DBDriver.collection('diario'); // FIX ME: retornar somente entradas do usuário ativo
-
-  const entradas = await collection.find().toArray();
+async function getEntradas(token) {
+  const collection = DBDriver.collection('diario');
+  const query = {
+    userId: token
+  };
+  const entradas = await collection.find(query).toArray();
   return entradas;
 }
 
