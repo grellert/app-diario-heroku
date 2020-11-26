@@ -30,6 +30,7 @@ async function getEntrada(userId, data){
 }
 
 async function getEntradas(token){
+  console.log('Requisitando entradas do user: ', token)
   const collection = DBDriver.collection('diario')
   const query = {userId: token}
 
